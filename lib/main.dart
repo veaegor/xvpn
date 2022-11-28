@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import './MainPage.dart';
+import 'package:xvpn/main_page.dart';
 
 void main() => runApp(
-   MaterialApp(
+   const MaterialApp(
     home: MainPage(),
   ),
 );

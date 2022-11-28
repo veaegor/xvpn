@@ -55,7 +55,7 @@ class _PulsatingButtonState extends State<PulsatingButton>
       builder: (context, child) {
         return GestureDetector(
           onTap: () {
-            TextSwitch();
+            textSwitch();
             _animationController.forward();
             widget.onPressed?.call();
           },
@@ -116,7 +116,7 @@ class _PulsatingButtonState extends State<PulsatingButton>
     );
   }
 
-  void TextSwitch() {
+  void textSwitch() {
     switch (widget.counter) {
       case 0:
         setState(() {

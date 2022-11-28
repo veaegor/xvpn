@@ -1,8 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:xvpn/SnappingList.dart';
-import './PulsatingButton.dart';
+import 'package:xvpn/pulsating_button.dart';
+import 'package:xvpn/snapping_list.dart';
+
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key, selectedColor}) : super(key: key);
@@ -121,7 +122,7 @@ class MainPageState extends State<MainPage> {
                 selectedColor: selectedColor,
                 counter: counter,
                 onPressed: () {
-                  ColorSwitch();
+                  colorSwitch();
                 },
               ),
               const SizedBox(height: 40),
@@ -212,7 +213,7 @@ class MainPageState extends State<MainPage> {
     );
   }
 
-  void ColorSwitch() {
+  void colorSwitch() {
     switch (counter) {
       case 0:
         setState(() {
@@ -222,7 +223,7 @@ class MainPageState extends State<MainPage> {
         break;
       case 1:
         setState(() {
-          StartTimer();
+          startTimer();
           selectedColor = const Color(0xff00DC7B);
           counter += 1;
         });
@@ -237,11 +238,11 @@ class MainPageState extends State<MainPage> {
     }
   }
 
-  void StartTimer() {
-    timer = Timer.periodic(const Duration(seconds: 1), (_) => AddTime());
+  void startTimer() {
+    timer = Timer.periodic(const Duration(seconds: 1), (_) => addTime());
   }
 
-  void AddTime() {
+  void addTime() {
     const addSeconds = 1;
     setState(() {
       final seconds = duration.inSeconds + addSeconds;
@@ -250,7 +251,7 @@ class MainPageState extends State<MainPage> {
   }
 
   void stopTimer() {
-    setState(() => duration = Duration());
+    setState(() => duration = const Duration());
     setState(() => timer?.cancel());
   }
 }
